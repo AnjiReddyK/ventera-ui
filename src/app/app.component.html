@@ -1,0 +1,46 @@
+<div style="margin-top: 1.5%">    
+  <table class="container" style="border-radius: 1px;">    
+      <thead>    
+          <tr>    
+              <th>SI.No</th>   
+              <th>Input Numerical Value</th>    
+              <th>Input unit of measure</th>    
+              <th>Target unit of measure</th>    
+              <th>Student Response</th>    
+              <th>Output</th>   
+              <th colspan="3">Actions</th> 
+          </tr>    
+      </thead>    
+      <tbody>    
+           <tr *ngFor="let dynamicElement of dynamicArray; let i = index;">       
+              <td>    
+                {{i + 1}}   
+              </td>   
+              <td>    
+                <input [(ngModel)]="dynamicElement.inputValue" class="form-control" type="number" />    
+              </td>    
+              <td>    
+                <input [(ngModel)]="dynamicElement.inputUnit" class="form-control" type="text" />    
+              </td>    
+              <td>    
+                <input [(ngModel)]="dynamicElement.targetUnit" class="form-control" type="text"/>    
+              </td>  
+              <td>    
+                <input [(ngModel)]="dynamicElement.studentResponse" class="form-control" type="number" />    
+              </td>    
+              <td> 
+                <span>{{dynamicElement.result}}</span>
+              </td>   
+              <td (click)="validate(i)">    
+                <button>Validate</button>    
+              </td>    
+              <td (click)="addRow()">    
+                <button>Add</button>    
+              </td>   
+              <td (click)="deleteRow(i)">    
+                <button>Delete</button>    
+              </td> 
+          </tr>    
+      </tbody>    
+  </table>    
+</div> 
